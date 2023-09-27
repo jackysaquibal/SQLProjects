@@ -51,13 +51,15 @@ SELECT * FROM customer_spending;
 --------------------------------------------------------------------------------
 /*				                 Question 1: 		  		                  */
 --------------------------------------------------------------------------------
-/* Queried each category and the corresponding total revenue for that
-category for the sale year 2016, sorted alphabetically by category. */
+/* Queried a list of countries where more than 30 transactions were made by people 
+within the age range of 18 - 25. This is important for generating global sales data 
+insights regarding different countries. This can lead to important business questions 
+such as what cultural implications might have on these differing statistics and why. */
 
-SELECT category, SUM(revenue) FROM customer_spending 
-WHERE sale_year = '2016'
-GROUP BY category
-ORDER BY category;
+SELECT country FROM customer_spending
+WHERE age >= 18 AND age <= 25
+GROUP BY country
+HAVING COUNT(quantity) > 30;
 
 --------------------------------------------------------------------------------
 /*				                  Question 2           		  		          */
@@ -75,7 +77,9 @@ ORDER BY sub_category;
 --------------------------------------------------------------------------------
 /*				                  Question 3           		  		          */
 --------------------------------------------------------------------------------
-/* Queried a list of all female buyers from the clothing category.*/
+/* Queried a list of all female buyers from the clothing category. These types of 
+insights and consumer statistics are important for generating ideas for marketing 
+campaigns. */
 
 SELECT COUNT(gender) FROM customer_spending
 WHERE gender = 'F' AND category = 'Clothing';
@@ -84,8 +88,9 @@ WHERE gender = 'F' AND category = 'Clothing';
 /*				                  Question 4           		  		          */
 --------------------------------------------------------------------------------
 /* Queried the age, sub_category, average quantitiy, and average cost columns.
-Grouped by age and sub_category to show more insight to customer spending patterns.
-Ordered the list by oldest to youngest age, and by sub_category alphabetically. */
+Grouped by age and sub_category to show more insight to customer spending patterns 
+regarding age. Ordered the list by oldest to youngest age, and by sub_category 
+alphabetically. */
 
 SELECT age, sub_category, AVG(quantity) AS avg_quantity, AVG(cost) AS avg_cost FROM customer_spending 
 GROUP BY age, sub_category
@@ -94,13 +99,13 @@ ORDER BY age DESC, sub_category;
 --------------------------------------------------------------------------------
 /*				                  Question 5           		  		          */
 --------------------------------------------------------------------------------
-/* Queried a list of countries where more than 30 transactions were made by people 
-within the age range of 18 - 25. */
+/* Queried each category and the corresponding total revenue for that
+category for the sale year 2016, sorted alphabetically by category. */
 
-SELECT country FROM customer_spending
-WHERE age >= 18 AND age <= 25
-GROUP BY country
-HAVING COUNT(quantity) > 30;
+SELECT category, SUM(revenue) FROM customer_spending 
+WHERE sale_year = '2016'
+GROUP BY category
+ORDER BY category;
     
 --------------------------------------------------------------------------------
 /*				                  Question 6           		  		          */
