@@ -1,6 +1,6 @@
 /*
     Name: Jacqueline Saquibal
-    DTSC660: Data and Database Managment with SQL
+    Data and Database Managment with SQL
 */
 
 --------------------------------------------------------------------------------
