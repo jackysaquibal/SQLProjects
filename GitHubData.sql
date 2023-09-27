@@ -1,9 +1,6 @@
 /*
-DTSC 660
-Assignment 2
 Name: Jacqueline Saquibal
-
-Put your SQL code in the appropriate section of the document below
+Database Mangement With SQL
 */
 
 --Question 1 (Put your answer below)
