@@ -52,7 +52,7 @@ SELECT * FROM customer_spending;
 /*				                 Question 1: 		  		                  */
 --------------------------------------------------------------------------------
 /* Queried each category and the corresponding total revenue for that
-category for the sale year 2016, sorted in alphabetically. */
+category for the sale year 2016, sorted alphabetically by category. */
 
 SELECT category, SUM(revenue) FROM customer_spending 
 WHERE sale_year = '2016'
